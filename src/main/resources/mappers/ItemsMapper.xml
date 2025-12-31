@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dwit.developers.springrestservice.mapper.ItemsMapper">
+
+    <select id="getItemsByWarehouseId"
+            resultType="com.dwit.developers.springrestservice.dto.ResultDto">
+
+        SELECT i.id          as id,
+               i.name        as name,
+               i.category_id as categoryId,
+               i.rack_id     as rackId,
+
+               r.rack_name as rackName,
+               ro.room_name as roomName
+        FROM item i
+                 INNER JOIN rack r ON i.rack_id = r.id
+                 INNER JOIN room ro ON r.room_id = ro.id
+                 INNER JOIN ware_house w ON ro.ware_house_id = w.id
+        WHERE w.id = #{warehouseId}
+        ORDER BY i.id
+        LIMIT #{limit}
+        OFFSET #{offset}
+
+    </select>
+
+    <select id="getItemCountByWarehouseId" resultType="int">
+        SELECT COUNT(*)
+        FROM item i
+                 INNER JOIN rack r ON i.rack_id = r.id
+                 INNER JOIN room ro ON r.room_id = ro.id
+                 INNER JOIN ware_house w ON ro.ware_house_id = w.id
+        WHERE w.id = #{warehouseId}
+    </select>
+</mapper>
