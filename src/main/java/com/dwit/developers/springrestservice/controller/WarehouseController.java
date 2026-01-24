@@ -35,17 +35,6 @@ public class WarehouseController extends BaseController {
             return ResponseEntity.ok(failureResponse(customMessageSource.get(ResponseMessageConstant.CREATE_FAILED,customMessageSource.get(EntityConstant.WAREHOUSE)),null));
         }
     }
-//
-//    @PostMapping("/generate")
-//    public ResponseEntity<ResponseDto> generateNumbers(@RequestBody List<Integer> warehouseIdList) {
-//        List<String> warehouseGeneratevalue = warehouseService.generateValue(warehouseIdList);
-//        if (!warehouseGeneratevalue.isEmpty()) {
-//            return ResponseEntity.ok(successResponse(customMessageSource.get(ResponseMessageConstant.CREATE_SUCCESS,customMessageSource.get(EntityConstant.WAREHOUSE)), null));
-//        } else {
-//            return ResponseEntity.ok(failureResponse(customMessageSource.get(ResponseMessageConstant.CREATE_FAILED,customMessageSource.get(EntityConstant.WAREHOUSE)),null));
-//        }
-//    }
-
 
 
     @GetMapping

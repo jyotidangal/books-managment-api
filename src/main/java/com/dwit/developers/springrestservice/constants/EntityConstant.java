@@ -7,6 +7,8 @@ public class EntityConstant {
     public static final String RACK ="rack";
     public static final String CATEGORY="category";
     public static final String ITEM="item";
+    public static final String Registration ="registration";
+    public static final String User ="user";
 
 
 }

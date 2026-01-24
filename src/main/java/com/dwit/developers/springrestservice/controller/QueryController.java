@@ -9,7 +9,6 @@ import com.dwit.developers.springrestservice.service.query.QueryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/query-controller")

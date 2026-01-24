@@ -1,0 +1,28 @@
+services:
+  app:
+    build: .
+    container_name: springboot-app
+    ports:
+      - "9090:9090"
+    environment:
+      SERVER_PORT: 9090
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/book_pasal
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Deerwalk
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: book_pasal
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Deerwalk
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

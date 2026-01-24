@@ -70,13 +70,6 @@ public class StationeryTypeController extends BaseController{
         }
     }
 
-
-
-
-
-
-
-
     @DeleteMapping("id/{id}")
     public ResponseEntity<ResponseDto> deleteById(@PathVariable Integer id){
         Boolean status = stationeryTypeService.delete(id);
